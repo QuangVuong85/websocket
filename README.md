@@ -14,7 +14,11 @@ make clean
 make
 ```
 
+![](doc/build_run_ws.png)
+
 # Run
 ```shell script
 ./websocket-chat-multi 0.0.0.0 6785 . 5
 ```
+# Demo
+![](doc/demo.png)
