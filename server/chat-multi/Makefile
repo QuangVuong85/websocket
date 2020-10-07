@@ -8,6 +8,8 @@ OBJDIR = ./build
 DEPS = $(OBJDIR)/http_session.o  $(OBJDIR)/listener.o $(OBJDIR)/shared_state.o $(OBJDIR)/websocket_session.o
 TARGET = $(BDIR)/websocket-chat-multi
 
+.PHONY: clean run
+
 $(TARGET): $(DEPS) $(OBJDIR)/main.o
 	$(CC) -o $@ $^ $(LIBS)
 
@@ -26,14 +28,10 @@ $(OBJDIR)/listener.o: $(SDIR)/listener.cpp $(IDIR)/listener.hpp $(IDIR)/net.hpp 
 $(OBJDIR)/main.o: $(SDIR)/main.cpp $(IDIR)/listener.hpp $(IDIR)/shared_state.hpp
 	$(CC) -c -o $@ $<
 
-.PHONY: clean compile
-
-compile:
-	@echo "${tput setaf 2}Building ..."
-	$(TARGET)
-
 clean:
-	@echo "${tput setaf 1}Cleaning up..."
+	@echo "Cleaning up..."
 	rm -f $(TARGET)
 	rm -f $(OBJDIR)/*.o
 
+run:
+	$(TARGET) 0.0.0.0 6785 . 5
