@@ -54,7 +54,6 @@ int main(int argc, char *argv[]) {
     ioc.run();
 
     // (If we get here, it means we got a SIGINT or SIGTERM)
-
     // Block until all the threads exit
     for (auto &t : v)
         t.join();
