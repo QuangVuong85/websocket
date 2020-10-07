@@ -18,9 +18,3 @@ file(GLOB APP_FILES
         )
 add_executable(websocket-chat-multi main.cpp ${APP_FILES})
 target_link_libraries(websocket-chat-multi pthread)
-
-
-#add_executable(chat_server chat_server.cpp ../includes/chat_message.hpp)
-#add_executable(chat_client chat_client.cpp ../includes/chat_message.hpp)
-#target_link_libraries (chat_server pthread)
-#target_link_libraries (chat_client pthread)
